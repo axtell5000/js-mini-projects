@@ -146,6 +146,25 @@ p {
 }
 
 /*  global classes */
+.btn {
+  background: transparent;
+  border: 2px solid var(--clr-black);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: var(--clr-black);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.875rem;
+  letter-spacing: var(--spacing);
+  padding: 0.375rem 0.75rem;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--clr-black);
+  color: var(--clr-white);
+}
 
 /* section */
 .section {
