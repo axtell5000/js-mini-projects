@@ -42,6 +42,7 @@ Variables
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
+  --clr-gold: #c59d5f;
   --clr-black: #222;
   --ff-primary: "Roboto", sans-serif;
   --ff-secondary: "Open Sans", sans-serif;
@@ -254,18 +255,22 @@ Questions
 }
 
 /* hide text */
-/* .question-text {
+.question-text {
   display: none;
 }
+
 .show-text .question-text {
   display: block;
 }
+
 .minus-icon {
   display: none;
 }
+
 .show-text .minus-icon {
   display: inline;
 }
+
 .show-text .plus-icon {
   display: none;
-} */
+}
