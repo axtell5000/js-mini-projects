@@ -267,6 +267,8 @@ Menu
   justify-content: space-between;
 }
 
+
+
 .item-info h4 {
   margin-bottom: 0.5rem;
 }
@@ -284,14 +286,13 @@ Menu
 
   .menu-item {
     grid-template-columns: 225px 1fr;
-    gap: 0 1.25rem;
-    max-width: 40rem;
+    gap: 0 4.15rem;
+    max-width: 45rem;
   }
 
   .photo {
     height: 175px;
   }
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -299,6 +300,10 @@ Menu
   .section-center {
     width: 95vw;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-item {
+    gap: 0 1.8rem;
   }
 
   .photo {
