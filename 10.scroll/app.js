@@ -4,15 +4,15 @@
 //offsetTop - A Number, representing the top position of the element, in pixels
 
 // ********** set date ************
-const date = document.getElementById('date');
+const date = document.getElementById("date");
 date.innerHTML = new Date().getFullYear();
 
 // ********** close links ************
-const navToggle = document.querySelector('.nav-toggle');
-const linksContainer = document.querySelector('.links-container');
-const links = document.querySelector('.links');
+const navToggle = document.querySelector(".nav-toggle");
+const linksContainer = document.querySelector(".links-container");
+const links = document.querySelector(".links");
 
-navToggle.addEventListener('click', () => {
+navToggle.addEventListener("click", () => {
   // linksContainer.classList.toggle('show-links');
   const containerHeight = linksContainer.getBoundingClientRect().height; // calculating height dynamically
   const linksHeight = links.getBoundingClientRect().height; // calculating height dynamically
@@ -21,9 +21,59 @@ navToggle.addEventListener('click', () => {
   } else {
     linksContainer.style.height = 0;
   }
-})
+});
 
 // ********** fixed navbar ************
+const navbar = document.getElementById("nav");
+const topLink = document.querySelector(".top-link");
+
+window.addEventListener("scroll", () => {
+  const scrollHeight = window.pageYOffset;
+  const navbarHeight = navbar.getBoundingClientRect().height;
+
+  // to fix the nav to the top
+  if (scrollHeight > navbarHeight) {
+    navbar.classList.add("fixed-nav");
+  } else {
+    navbar.classList.remove("fixed-nav");
+  }
+
+  // to show the 'to the top' arrow
+  if (scrollHeight > 500) {
+    topLink.classList.add("show-link");
+  } else {
+    topLink.classList.remove("show-link");
+  }
+});
 
 // ********** smooth scroll ************
 // select links
+const scrollLinks = document.querySelectorAll(".scroll-link");
+scrollLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    // navigate to specific spot
+    const id = e.currentTarget.getAttribute("href").slice(1);
+    const element = document.getElementById(id);
+    // calcuolate the heights
+    const navHeight = navbar.getBoundingClientRect().height;
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+    const fixedNav = navbar.classList.contains("fixed-nav");
+    let position = element.offsetTop - navHeight;
+
+    if (!fixedNav) {
+      position = position - navHeight;
+    }
+
+    // just checking if the nav is open because of the greater height if it is
+    if (navHeight > 82) {
+      position = position + containerHeight;
+    }
+
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+    linksContainer.style.height = 0;
+  });
+});
